@@ -530,7 +530,7 @@ class Tree extends React.Component<TreeProps, TreeState> {
                   transitionDuration={transitionDuration}
                   onNodeToggle={this.handleNodeToggle}
                   onNodeClick={this.handleOnNodeClickCb}
-                  onNodeRightClick={this.handleOnNodeClickCb}
+                  onNodeRightClick={this.handleOnNodeRightClickCb}
                   onNodeMouseOver={this.handleOnNodeMouseOverCb}
                   onNodeMouseOut={this.handleOnNodeMouseOutCb}
                   subscriptions={subscriptions}
