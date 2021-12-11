@@ -319,8 +319,6 @@ class Tree extends React.Component<TreeProps, TreeState> {
   handleOnNodeRightClickCb: TreeNodeEventCallback = (hierarchyPointNode, evt) => {
     const { onNodeRightClick } = this.props;
     if (onNodeRightClick && typeof onNodeRightClick === 'function') {
-      // Persist the SyntheticEvent for downstream handling by users.
-      evt.persist();
       onNodeRightClick(clone(hierarchyPointNode), evt);
     }
   };
