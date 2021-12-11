@@ -57,6 +57,13 @@ export interface TreeProps {
   onNodeClick?: TreeNodeEventCallback;
 
   /**
+   * Called when a node is right clicked.
+   *
+   * {@link Tree.defaultProps.onNodeRightClick | Default value}
+   */
+  onNodeRightClick?: TreeNodeEventCallback;
+
+  /**
    * Called when mouse enters the space belonging to a node.
    *
    * {@link Tree.defaultProps.onNodeMouseOver | Default value}

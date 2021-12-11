@@ -26,6 +26,7 @@ type NodeProps = {
   renderCustomNodeElement: RenderCustomNodeElementFn;
   onNodeToggle: (nodeId: string) => void;
   onNodeClick: NodeEventHandler;
+  onNodeRightClick: NodeEventHandler;
   onNodeMouseOver: NodeEventHandler;
   onNodeMouseOut: NodeEventHandler;
   subscriptions: object;
@@ -132,6 +133,7 @@ export default class Node extends React.Component<NodeProps, NodeState> {
       nodeDatum: data,
       toggleNode: this.handleNodeToggle,
       onNodeClick: this.handleOnClick,
+      onNodeRightClick: this.handleOnRightClick,
       onNodeMouseOver: this.handleOnMouseOver,
       onNodeMouseOut: this.handleOnMouseOut,
     });
@@ -141,6 +143,10 @@ export default class Node extends React.Component<NodeProps, NodeState> {
 
   handleOnClick = evt => {
     this.props.onNodeClick(this.props.hierarchyPointNode, evt);
+  };
+
+  handleOnRightClick = evt => {
+    this.props.onNodeRightClick(this.props.hierarchyPointNode, evt);
   };
 
   handleOnMouseOver = evt => {

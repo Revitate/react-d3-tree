@@ -24,6 +24,7 @@ const DefaultNodeElement: React.FunctionComponent<DefaultNodeElementProps> = ({
   nodeDatum,
   toggleNode,
   onNodeClick,
+  onNodeRightClick,
   onNodeMouseOver,
   onNodeMouseOut,
 }) => (
@@ -34,6 +35,7 @@ const DefaultNodeElement: React.FunctionComponent<DefaultNodeElementProps> = ({
         toggleNode();
         onNodeClick(evt);
       }}
+      onContextMenu={onNodeRightClick}
       onMouseOver={onNodeMouseOver}
       onMouseOut={onNodeMouseOut}
     ></circle>

@@ -24,6 +24,7 @@ type TreeState = {
 class Tree extends React.Component<TreeProps, TreeState> {
   static defaultProps: Partial<TreeProps> = {
     onNodeClick: undefined,
+    onNodeRightClick: undefined,
     onNodeMouseOver: undefined,
     onNodeMouseOut: undefined,
     onLinkClick: undefined,
@@ -313,6 +314,18 @@ class Tree extends React.Component<TreeProps, TreeState> {
   };
 
   /**
+   * Handles the user-defined `onNodeClick` function.
+   */
+  handleOnNodeRightClickCb: TreeNodeEventCallback = (hierarchyPointNode, evt) => {
+    const { onNodeRightClick } = this.props;
+    if (onNodeRightClick && typeof onNodeRightClick === 'function') {
+      // Persist the SyntheticEvent for downstream handling by users.
+      evt.persist();
+      onNodeRightClick(clone(hierarchyPointNode), evt);
+    }
+  };
+
+  /**
    * Handles the user-defined `onLinkClick` function.
    */
   handleOnLinkClickCb: TreeLinkEventCallback = (linkSource, linkTarget, evt) => {
@@ -517,6 +530,7 @@ class Tree extends React.Component<TreeProps, TreeState> {
                   transitionDuration={transitionDuration}
                   onNodeToggle={this.handleNodeToggle}
                   onNodeClick={this.handleOnNodeClickCb}
+                  onNodeRightClick={this.handleOnNodeClickCb}
                   onNodeMouseOver={this.handleOnNodeMouseOverCb}
                   onNodeMouseOut={this.handleOnNodeMouseOutCb}
                   subscriptions={subscriptions}
