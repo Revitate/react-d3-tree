@@ -16,6 +16,7 @@ const textLayout = {
 
 export interface DefaultNodeElementProps extends CustomNodeElementProps {
   onNodeClick: SyntheticEventHandler;
+  onNodeRightClick: SyntheticEventHandler;
   onNodeMouseOver: SyntheticEventHandler;
   onNodeMouseOut: SyntheticEventHandler;
 }
