@@ -34,6 +34,5 @@ node_modules
 stats.json
 
 # Build outputs
-dist
 demo/build
 demo/public/docs
