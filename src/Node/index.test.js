@@ -173,6 +173,19 @@ describe('<Node />', () => {
         expect.objectContaining(mockEvt)
       );
     });
+
+    it('handles onNodeRightClick events and passes its `hierarchyPointNode` representation & event object to handler', () => {
+      const onRightClickSpy = jest.fn();
+      const mockEvt = { mock: 'event' };
+      const renderedComponent = shallow(<Node {...mockProps} onNodeRightClick={onRightClickSpy} />);
+
+      renderedComponent.find('circle').simulate('contextmenu', mockEvt);
+      expect(onRightClickSpy).toHaveBeenCalledTimes(1);
+      expect(onRightClickSpy).toHaveBeenCalledWith(
+        mockProps.hierarchyPointNode,
+        expect.objectContaining(mockEvt)
+      );
+    });
   });
 
   it('applies its own x/y coords on `transform` once mounted', () => {

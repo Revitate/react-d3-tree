@@ -243,11 +243,11 @@ class Tree extends React.Component<TreeProps, TreeState> {
    */
   static collapseNode(nodeDatum: TreeNodeDatum) {
     nodeDatum.__rd3t.collapsed = true;
-    if (nodeDatum.children && nodeDatum.children.length > 0) {
-      nodeDatum.children.forEach(child => {
-        Tree.collapseNode(child);
-      });
-    }
+    // if (nodeDatum.children && nodeDatum.children.length > 0) {
+    //   nodeDatum.children.forEach(child => {
+    //     Tree.collapseNode(child);
+    //   });
+    // }
   }
 
   /**
